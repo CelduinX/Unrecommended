@@ -1,0 +1,223 @@
+:root {
+  color-scheme: light dark;
+  --accent: #e11d2e;
+  --accent-strong: #c51222;
+  --accent-soft: #fff0f1;
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-hover: #f8f9fa;
+  --text: #191b1f;
+  --muted: #5f646d;
+  --border: #e1e3e7;
+  --shadow: 0 8px 24px rgb(28 32 39 / 8%);
+  color: var(--text);
+  font: 14.5px/1.5 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  margin: 0;
+  background: var(--bg);
+}
+
+main {
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 11px;
+  object-fit: cover;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+.settings-card,
+.setting--primary {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.settings-card {
+  overflow: hidden;
+  transition: opacity 160ms ease;
+}
+
+.settings-card.is-disabled {
+  opacity: .48;
+}
+
+h2 {
+  margin: 0;
+  padding: 11px 14px 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.setting {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+  line-height: 1.4;
+}
+
+.setting:hover {
+  background: var(--surface-hover);
+}
+
+.setting + .setting {
+  border-top: 1px solid var(--border);
+}
+
+.setting--primary {
+  min-height: 62px;
+}
+
+.setting__copy {
+  display: grid;
+  gap: 2px;
+}
+
+.setting__copy strong {
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.setting__copy small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.setting input[type="checkbox"] {
+  position: relative;
+  width: 38px;
+  height: 22px;
+  flex: 0 0 38px;
+  margin: 0;
+  border: 0;
+  border-radius: 999px;
+  appearance: none;
+  background: #b7bbc2;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 160ms ease;
+}
+
+.setting input[type="checkbox"]::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 28%);
+  content: "";
+  transition: transform 160ms ease;
+}
+
+.setting input[type="checkbox"]:checked {
+  background: var(--accent);
+}
+
+.setting input[type="checkbox"]:checked::after {
+  transform: translateX(16px);
+}
+
+.setting input[type="checkbox"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--accent-soft), 0 0 0 5px var(--accent);
+}
+
+.setting input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+footer {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22a06b;
+  box-shadow: 0 0 0 3px rgb(34 160 107 / 13%);
+}
+
+output {
+  font-size: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #ff4050;
+    --accent-strong: #d91c2c;
+    --accent-soft: #41191e;
+    --bg: #121315;
+    --surface: #1d1f22;
+    --surface-hover: #26292d;
+    --text: #f2f3f5;
+    --muted: #b5b8bf;
+    --border: #303338;
+    --shadow: 0 8px 24px rgb(0 0 0 / 20%);
+  }
+
+  .setting input[type="checkbox"] {
+    background: #555a62;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+  }
+}

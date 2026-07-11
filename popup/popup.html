@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="popup.css">
+    <title>Unrecommended</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img class="brand-mark" src="../assets/icons/icon-48.png" alt="">
+        <div>
+          <h1>Unrecommended</h1>
+          <p>YouTube, aber ruhiger.</p>
+        </div>
+      </header>
+
+      <form id="settings">
+        <label class="setting setting--primary">
+          <span class="setting__copy">
+            <strong>Auf YouTube aktiv</strong>
+            <small>Alle Anpassungen ein- oder ausschalten</small>
+          </span>
+          <input name="enabled" type="checkbox">
+        </label>
+
+        <section class="settings-card" aria-labelledby="appearance-heading">
+          <h2 id="appearance-heading">Inhalt anpassen</h2>
+          <label class="setting">
+            <span>Shorts ausblenden</span>
+            <input name="reduceShorts" type="checkbox">
+          </label>
+        </section>
+
+        <section class="settings-card" aria-labelledby="sidebar-heading">
+          <h2 id="sidebar-heading">Sidebar anpassen</h2>
+          <label class="setting">
+            <span>Abo-Liste ausblenden</span>
+            <input name="hideNativeSubscriptions" type="checkbox">
+          </label>
+          <label class="setting">
+            <span>Entdecken ausblenden</span>
+            <input name="hideExploreSection" type="checkbox">
+          </label>
+          <label class="setting">
+            <span>Mehr von YouTube ausblenden</span>
+            <input name="hideMoreYouTubeSection" type="checkbox">
+          </label>
+          <label class="setting">
+            <span>Weitere Links ausblenden</span>
+            <input name="hideSecondaryLinks" type="checkbox">
+          </label>
+        </section>
+      </form>
+
+      <footer>
+        <span class="live-dot" aria-hidden="true"></span>
+        <output id="status" aria-live="polite">Änderungen werden sofort angewendet.</output>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

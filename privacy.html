@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Datenschutzerklärung der Chromium-Erweiterung Unrecommended.">
+  <title>Datenschutz – Unrecommended</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --accent: #e11d2e;
+      --background: #f5f6f8;
+      --surface: #fff;
+      --text: #191b1f;
+      --muted: #5f646d;
+      --border: #e1e3e7;
+      font: 16px/1.65 "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--background); color: var(--text); }
+    main { width: min(760px, calc(100% - 32px)); margin: 48px auto; padding: 40px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
+    header { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    header img { width: 48px; height: 48px; border-radius: 12px; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 5vw, 2.25rem); line-height: 1.2; letter-spacing: -.025em; }
+    header p { margin: 3px 0 0; color: var(--muted); }
+    h2 { margin: 2rem 0 .6rem; font-size: 1.15rem; line-height: 1.35; }
+    p, ul { margin: .55rem 0 1rem; }
+    ul { padding-left: 1.35rem; }
+    li + li { margin-top: .3rem; }
+    a { color: var(--accent); }
+    .updated { color: var(--muted); font-size: .9rem; }
+    footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+    @media (max-width: 600px) { main { margin: 0; width: 100%; padding: 28px 20px; border: 0; border-radius: 0; } }
+    @media (prefers-color-scheme: dark) {
+      :root { --background: #121315; --surface: #1d1f22; --text: #f2f3f5; --muted: #b5b8bf; --border: #303338; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="data:image/png;base64,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" alt="Unrecommended">
+      <div>
+        <h1>Datenschutzerklärung</h1>
+        <p>für die Browser-Erweiterung Unrecommended</p>
+      </div>
+    </header>
+
+    <p class="updated">Stand: 11. Juli 2026</p>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      Unrecommended-Projekt, veröffentlicht durch den GitHub-Nutzer CelduinX<br>
+      Kontakt: <a href="https://github.com/CelduinX/Unrecommended/issues">GitHub Issues</a>
+    </p>
+
+    <h2>2. Zweck der Erweiterung</h2>
+    <p>Unrecommended passt die sichtbare Oberfläche von YouTube im Browser an. Die Erweiterung blendet ausgewählte Bereiche aus, stellt den Abo-Feed als Grid oder Liste dar, ergänzt in der Listenansicht Videobeschreibungen und hebt Videos anhand des von YouTube dargestellten Wiedergabefortschritts optisch weniger stark hervor.</p>
+
+    <h2>3. Lokal verarbeitete Daten</h2>
+    <p>Zur Bereitstellung dieser Funktionen verarbeitet Unrecommended ausschließlich lokal im Browser:</p>
+    <ul>
+      <li>die aktuell geöffnete YouTube-Adresse und den Seitentyp,</li>
+      <li>sichtbare YouTube-Seiteninhalte und Oberflächenelemente,</li>
+      <li>Links zu Videos im Abo-Feed,</li>
+      <li>von YouTube bereitgestellte Videobeschreibungen,</li>
+      <li>den von YouTube im Thumbnail dargestellten Wiedergabefortschritt und</li>
+      <li>die vom Nutzer gewählten Erweiterungseinstellungen.</li>
+    </ul>
+    <p>Die Verarbeitung ist auf <code>https://www.youtube.com/*</code> beschränkt.</p>
+
+    <h2>4. Speicherung</h2>
+    <p>Die vom Nutzer gewählten Einstellungen werden über <code>chrome.storage.sync</code> gespeichert. Wenn die Browser-Synchronisierung aktiviert ist, kann der Browseranbieter diese Einstellungen mit dem angemeldeten Browserprofil synchronisieren. Unrecommended betreibt dafür keinen eigenen Server und erhält keinen Zugriff auf das Browserkonto.</p>
+    <p>Videobeschreibungen werden ausschließlich während der laufenden Browsersitzung im Arbeitsspeicher zwischengespeichert. YouTube-Seiteninhalte, Wiedergabefortschritte und Videoverläufe werden durch Unrecommended nicht dauerhaft gespeichert.</p>
+
+    <h2>5. Datenübertragung</h2>
+    <p>Unrecommended überträgt keine personenbezogenen Daten, Nutzungsstatistiken, Telemetrie- oder Werbedaten an den Entwickler, eigene Server oder Analysedienste.</p>
+    <p>Zur Anzeige von Videobeschreibungen ruft die Erweiterung die jeweilige Videoseite direkt bei YouTube ab. Diese Kommunikation findet ausschließlich zwischen dem Browser des Nutzers und YouTube statt und unterliegt zusätzlich den Datenschutzbestimmungen von YouTube beziehungsweise Google.</p>
+
+    <h2>6. Browserberechtigungen</h2>
+    <ul>
+      <li><strong>storage:</strong> Speichert die gewählten Darstellungsoptionen und die ausgewählte Abo-Feed-Ansicht.</li>
+      <li><strong>Zugriff auf youtube.com:</strong> Ermöglicht ausschließlich die beschriebenen Anpassungen der YouTube-Oberfläche und das lokale Lesen der dafür erforderlichen Seitenelemente.</li>
+    </ul>
+
+    <h2>7. Keine Werbung und kein Datenverkauf</h2>
+    <p>Unrecommended verkauft keine Daten, gibt keine Daten an Werbenetzwerke weiter und verwendet keine Daten für personalisierte Werbung, Kreditwürdigkeitsentscheidungen oder andere Zwecke außerhalb der beschriebenen Erweiterungsfunktionen.</p>
+
+    <h2>8. Kontrolle und Löschung</h2>
+    <p>Die Verarbeitung kann jederzeit beendet werden, indem Unrecommended im Popup deaktiviert oder die Erweiterung deinstalliert wird. Gespeicherte Einstellungen können über die Browserfunktionen für Erweiterungsdaten oder durch die Deinstallation entfernt werden.</p>
+
+    <h2>9. Limited Use</h2>
+    <p>Die Nutzung von Informationen, die über Browser- und Google-Dienste empfangen werden, erfolgt ausschließlich zur Bereitstellung und Verbesserung der beschriebenen nutzerorientierten Funktionen und entsprechend den Limited-Use-Anforderungen der Chrome Web Store User Data Policy.</p>
+
+    <h2>10. Änderungen dieser Datenschutzerklärung</h2>
+    <p>Diese Datenschutzerklärung wird aktualisiert, wenn sich Funktionsumfang, Berechtigungen oder Datenverarbeitung von Unrecommended ändern. Auf dieser Seite wird stets die aktuelle Fassung bereitgestellt.</p>
+
+    <h2>11. Kontakt</h2>
+    <p>Fragen zum Datenschutz können über die <a href="https://github.com/CelduinX/Unrecommended/issues">öffentliche Kontaktseite des Projekts</a> gestellt werden. Bitte dort keine vertraulichen oder personenbezogenen Daten veröffentlichen.</p>
+
+    <footer>Unrecommended ist ein unabhängiges Projekt und steht in keiner Verbindung zu YouTube oder Google. YouTube und Google sind Marken ihrer jeweiligen Inhaber.</footer>
+  </main>
+</body>
+</html>

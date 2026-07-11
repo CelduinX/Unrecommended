@@ -1,0 +1,336 @@
+/* All selectors are scoped so disabling Unrecommended restores YouTube immediately. */
+html[data-unrecommended] {
+  --unrecommended-page-width: 1280px;
+  --unrecommended-accent: #cc181e;
+}
+
+/*
+ * YouTube markiert die vollständigen Shorts-Regale mit is-shorts. Das ist
+ * absichtlich präziser als eine Suche nach einzelnen /shorts/-Links: Ein
+ * regulärer Feed-Abschnitt kann ebenfalls solche Links enthalten.
+ */
+html[data-unrecommended][data-unrecommended-reduce-shorts] ytd-rich-shelf-renderer[is-shorts],
+html[data-unrecommended][data-unrecommended-reduce-shorts] ytd-reel-shelf-renderer {
+  display: none !important;
+}
+
+/* Der Shorts-Eintrag in der linken Navigation (Desktop und eingeklappte Navigation). */
+html[data-unrecommended][data-unrecommended-reduce-shorts] ytd-guide-entry-renderer:has(#endpoint[title="Shorts"]),
+html[data-unrecommended][data-unrecommended-reduce-shorts] ytd-mini-guide-entry-renderer:has(#endpoint[title="Shorts"]) {
+  display: none !important;
+}
+
+/* Optionales Aufräumen der linken Navigation. */
+html[data-unrecommended][data-unrecommended-hide-native-subscriptions] ytd-guide-section-renderer[data-unrecommended-native-subscriptions],
+html[data-unrecommended][data-unrecommended-hide-explore] ytd-guide-section-renderer[data-unrecommended-explore],
+html[data-unrecommended][data-unrecommended-hide-more-youtube] ytd-guide-section-renderer[data-unrecommended-more-youtube],
+html[data-unrecommended][data-unrecommended-hide-report-history] ytd-guide-entry-renderer:has(#endpoint[href="/reporthistory"]),
+html[data-unrecommended][data-unrecommended-hide-sidebar-footer] ytd-guide-renderer #footer {
+  display: none !important;
+}
+
+html[data-unrecommended] .unrecommended-guide-entry {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  margin: 0 12px 0 0;
+  padding: 0 12px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+html[data-unrecommended] .unrecommended-guide-entry:hover {
+  background-color: color-mix(in srgb, currentColor 10%, transparent) !important;
+}
+
+html[data-unrecommended] .unrecommended-guide-entry__icon {
+  flex: 0 0 24px;
+  height: 24px;
+  margin-right: 24px;
+  width: 24px;
+}
+
+html[data-unrecommended] .unrecommended-guide-entry__icon > *,
+html[data-unrecommended] .unrecommended-guide-entry__icon svg {
+  display: block;
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}
+
+html[data-unrecommended] .unrecommended-guide-entry__label {
+  line-height: 20px;
+}
+
+/* Der moderne Empfehlungsblock gehört nicht zum klassischen Abo-Feed. */
+html[data-unrecommended] ytd-rich-section-renderer[data-unrecommended-subscriptions-relevant] {
+  display: none !important;
+}
+
+/* Umschalter zwischen klassischer Grid- und Listenansicht. */
+html[data-unrecommended] .unrecommended-view-switcher {
+  align-items: center;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  height: 36px;
+  margin-right: 12px;
+  padding: 2px;
+}
+
+html[data-unrecommended] .unrecommended-view-switcher button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  padding: 0;
+  width: 34px;
+}
+
+html[data-unrecommended] .unrecommended-view-switcher button:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+html[data-unrecommended] .unrecommended-view-switcher button.is-active {
+  background: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+html[data-unrecommended] .unrecommended-view-switcher button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+}
+
+html[data-unrecommended] .unrecommended-view-switcher svg {
+  fill: currentColor;
+  height: 20px;
+  width: 20px;
+}
+
+/* Die vorhandenen YouTube-Karten werden in der Listenansicht nur neu angeordnet. */
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer #contents {
+  box-sizing: border-box;
+  display: block !important;
+  margin-inline: auto !important;
+  max-width: 1200px;
+  width: 100%;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
+  display: block !important;
+  box-sizing: border-box;
+  margin: 0 0 8px !important;
+  max-width: none !important;
+  padding: 10px !important;
+  border-radius: 14px;
+  transition: background-color 140ms ease, filter 140ms ease, opacity 140ms ease;
+  width: 100% !important;
+}
+
+html[data-unrecommended] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer[data-unrecommended-watched] {
+  filter: saturate(.35);
+  opacity: .5;
+  transition: filter 140ms ease, opacity 140ms ease;
+}
+
+html[data-unrecommended] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer[data-unrecommended-watched]:hover,
+html[data-unrecommended] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer[data-unrecommended-watched]:focus-within {
+  filter: saturate(.55);
+  opacity: .68;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer:hover,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer:focus-within {
+  background: rgb(0 0 0 / 5%);
+}
+
+html[dark][data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer:hover,
+html[dark][data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer:focus-within {
+  background: rgb(255 255 255 / 7%);
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer > #content,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer yt-lockup-view-model {
+  display: block !important;
+  width: 100% !important;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupViewModelHost {
+  align-items: start;
+  display: grid !important;
+  gap: 16px;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  width: 100% !important;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupViewModelContentImage {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupViewModelMetadata {
+  align-self: stretch;
+  display: flex !important;
+  flex-direction: column;
+  margin: 0 !important;
+  min-width: 0;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelHost {
+  display: grid !important;
+  grid-template-columns: 26px minmax(0, 760px) minmax(12px, 1fr) 40px;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  row-gap: 5px;
+  width: 100%;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelAvatar {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  width: 26px;
+  height: 26px;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelAvatar .ytSpecAvatarShapeAvatarSizeMedium,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelAvatar .ytSpecAvatarShapeHost {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelTextContainer {
+  display: contents !important;
+  min-width: 0;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelHeadingReset {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelTitle {
+  display: -webkit-box !important;
+  overflow: hidden;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 22px !important;
+  white-space: normal !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytContentMetadataViewModelHost {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 7px;
+  color: var(--yt-spec-text-secondary, #606060);
+  font-size: 13px !important;
+  line-height: 19px !important;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMetadata {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  min-width: 0;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytContentMetadataViewModelMetadataRow {
+  display: flex !important;
+  align-items: center;
+  min-width: 0;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytContentMetadataViewModelMetadataRow + .ytContentMetadataViewModelMetadataRow::before {
+  margin-right: 7px;
+  color: var(--yt-spec-text-secondary, #606060);
+  content: "•";
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMenuButton {
+  grid-column: 4;
+  grid-row: 1 / 3;
+  align-self: start;
+  justify-self: end;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMenuButton button {
+  border-radius: 999px !important;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMenuButton button:hover,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMenuButton button:focus-visible {
+  background: rgb(0 0 0 / 9%) !important;
+}
+
+html[dark][data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMenuButton button:hover,
+html[dark][data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMenuButton button:focus-visible {
+  background: rgb(255 255 255 / 12%) !important;
+}
+
+/*
+ * YouTube verwendet je nach ausgeliefertem Renderer unterschiedliche Namen
+ * für den Beschreibungstext. In der Grid-Ansicht bleibt er kompakt; nur die
+ * Listenansicht nutzt den freien Platz neben dem Vorschaubild.
+ */
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .yt-lockup-metadata-view-model__description,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelDescription,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer #description-text,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .metadata-snippet-text,
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .unrecommended-video-description {
+  display: -webkit-box !important;
+  max-width: 760px;
+  margin: 12px 0 0 !important;
+  overflow: hidden !important;
+  color: var(--yt-spec-text-secondary, #606060);
+  font-size: 13.5px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: normal !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+html[data-unrecommended] .unrecommended-video-description {
+  display: none;
+}
+
+html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer yt-touch-feedback-shape {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupViewModelHost {
+    grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
+  }
+
+  html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelHost {
+    grid-template-columns: 24px minmax(0, 1fr) 36px;
+    column-gap: 8px;
+  }
+
+  html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelMenuButton {
+    grid-column: 3;
+  }
+
+  html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelAvatar,
+  html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelAvatar .ytSpecAvatarShapeAvatarSizeMedium,
+  html[data-unrecommended][data-unrecommended-subscription-view="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer .ytLockupMetadataViewModelAvatar .ytSpecAvatarShapeHost {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
