@@ -23,28 +23,6 @@ Unrecommended rückt deine abonnierten Kanäle wieder in den Mittelpunkt. Die Er
 - alle Einstellungen direkt über das Erweiterungssymbol ändern
 - automatische helle und dunkle Darstellung
 
-## Installation unter Windows
-
-Öffne PowerShell, kopiere die folgende Zeile vollständig hinein und bestätige mit Enter:
-
-```powershell
-irm https://raw.githubusercontent.com/CelduinX/Unrecommended/main/install.ps1 | iex
-```
-
-Der Befehl lädt die aktuelle Version herunter, entpackt sie in einen festen Ordner, kopiert den Ordnerpfad in die Zwischenablage und öffnet die Chrome-Erweiterungsseite.
-
-Danach sind nur noch drei Schritte nötig:
-
-1. **Entwicklermodus** oben rechts einschalten.
-2. **Entpackte Erweiterung laden** auswählen.
-3. Den bereits in die Zwischenablage kopierten Ordnerpfad einfügen und den Ordner auswählen.
-
-Chrome erlaubt die vollständig automatische Installation lokaler Erweiterungen aus Sicherheitsgründen nicht. Sobald Unrecommended im Chrome Web Store freigegeben ist, entfällt dieser Zwischenschritt.
-
-## Aktualisieren
-
-Führe denselben PowerShell-Befehl erneut aus. Öffne danach `chrome://extensions` und klicke bei Unrecommended auf **Neu laden**.
-
 ## Datenschutz
 
 Unrecommended verarbeitet die für seine Funktionen benötigten YouTube-Inhalte lokal im Browser. Es gibt keine Werbung, keine Telemetrie und keinen Verkauf von Nutzerdaten.
